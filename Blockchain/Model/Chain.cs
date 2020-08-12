@@ -115,11 +115,6 @@ namespace Blockchain.Model
             }
 
             return result;
-        }
-
-        private void Sync()
-        {
-
-        }        
+        }       
     }
 }
