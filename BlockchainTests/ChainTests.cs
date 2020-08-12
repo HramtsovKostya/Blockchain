@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Blockchain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Blockchain.Model;
 
 namespace Blockchain.Tests
 {
@@ -16,9 +11,18 @@ namespace Blockchain.Tests
         {
             var chain = new Chain();
             chain.Add("Code blog", "Admin");
-
-            Assert.AreEqual(2, chain.Count);
+         
             Assert.AreEqual("Code blog", chain.Last.Data);
+        }
+
+        [TestMethod()]
+        public void CheckTest()
+        {
+            var chain = new Chain();
+            chain.Add("Hello, world!", "Admin");
+            chain.Add("Code blog", "Shwanov");
+
+            Assert.IsTrue(chain.Check());
         }
     }
 }

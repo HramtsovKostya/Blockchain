@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blockchain.Model;
+using System;
 using System.Windows.Forms;
 
 namespace Blockchain
@@ -12,20 +13,15 @@ namespace Blockchain
         private void AddButton_Click(object sender, EventArgs e)
         {
             listBox.Items.Clear();
-            _chain.Add(textBox.Text, "Admin");
+            _chain.Add(textBox.Text, "User");
             textBox.Clear();
-            AddDataToListBox();
+
+            listBox.Items.AddRange(_chain.Blocks.ToArray());
         }        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            AddDataToListBox();
-        }
-
-        private void AddDataToListBox()
-        {
-            foreach (var block in _chain.Blocks)
-                listBox.Items.Add(block);
+            listBox.Items.AddRange(_chain.Blocks.ToArray());
         }
     }
 }
